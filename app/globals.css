@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
+/* ================= ROOT COLORS ================= */
 :root {
-  --background: #ffffff;
+  --background: #f8f7f2; /* ✨ Luxury ivory background */
   --foreground: #171717;
 }
 
@@ -9,9 +10,11 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
+  --font-serif: Georgia, serif;
   --font-mono: var(--font-geist-mono);
 }
 
+/* ================= DARK MODE ================= */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -19,8 +22,195 @@
   }
 }
 
+/* ================= BODY ================= */
 body {
-  background: var(--background);
+  background: radial-gradient(circle at top, #ffffff, #f8f7f2); /* ✨ Premium gradient */
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+
+
+
+
+/* ================= GOLD TEXT ================= */
+.gold-text {
+  background: linear-gradient(90deg, #d4af37, #ffd700, #b8962e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+
+
+
+/* ================= FADE-IN ANIMATION ================= */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 1s ease forwards;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-400 {
+  animation-delay: 0.4s;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+
+/* ================= NAVBAR FADE DOWN ================= */
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeDown {
+  animation: fadeDown 0.6s ease-out;
+}
+
+
+
+
+
+/* ================= DROPDOWN ANIMATION ================= */
+.dropdown-animate {
+  animation: dropdownFade 0.3s ease forwards;
+}
+
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+
+
+
+/* ================= GOLD GLOW EFFECT ================= */
+.gold-glow {
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.6),
+              0 0 20px rgba(255, 215, 0, 0.4);
+}
+
+
+
+
+
+/* ================= SECTION SCROLL ANIMATION ================= */
+.animate-section {
+  opacity: 0;
+  transform: translateY(60px);
+  animation: sectionFade 1s ease forwards;
+}
+
+.animate-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  animation: slideLeft 1s ease forwards;
+}
+
+.animate-right {
+  opacity: 0;
+  transform: translateX(60px);
+  animation: slideRight 1s ease forwards;
+}
+
+@keyframes sectionFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+
+
+
+/* ================= TYPOGRAPHY SYSTEM ================= */
+
+/* Primary Serif (Headings) */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif), Georgia, serif;
+}
+
+/* Secondary Sans (Body + Buttons) */
+body, p, button, a, span {
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+
+
+
+
+/* ================= SUBTLE TEXT ANIMATION ================= */
+
+@keyframes textFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+    letter-spacing: 0.05em;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    letter-spacing: 0.02em;
+  }
+}
+
+/* Apply to headings */
+h1, h2, h3 {
+  animation: textFadeUp 0.8s ease forwards;
+}
+
+/* Premium stagger effect */
+h2 {
+  animation-delay: 0.2s;
+}
+
+h3 {
+  animation-delay: 0.3s;
+}
+
+/* Optional class */
+.animate-text {
+  opacity: 0;
+  animation: textFadeUp 0.8s ease forwards;
 }
