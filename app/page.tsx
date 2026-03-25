@@ -243,7 +243,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CONTACT */}
+       {/* CONTACT */}
       <section className="bg-black text-white py-16 px-4 md:px-6">
         <div className="max-w-6xl mx-auto text-center">
 
@@ -255,7 +255,9 @@ export default function Home() {
             We welcome you to explore our exclusive collections in person.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 text-center">
+          {/* ✅ UPDATED GRID */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center">
+
             <div>
               <h3 className="text-lg md:text-xl font-semibold mb-2">Call Us</h3>
               <p className="text-gray-400 text-sm md:text-base">+91 8106444207</p>
@@ -282,6 +284,19 @@ export default function Home() {
                 Chat with us
               </a>
             </div>
+
+            {/* ✅ INSTAGRAM */}
+            <div>
+              <h3 className="text-lg md:text-xl font-semibold mb-2">Instagram</h3>
+              <a
+                href="https://www.instagram.com/nakoda.jewellers.2000?utm_source=qr&igsh=YWR1OWY2ZXIxcTc5"
+                target="_blank"
+                className="text-pink-400 hover:text-pink-300 text-sm md:text-base"
+              >
+                Follow us
+              </a>
+            </div>
+
           </div>
 
           <p className="mt-10 text-gray-400 text-xs md:text-sm">
