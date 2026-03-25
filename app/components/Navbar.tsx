@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
@@ -142,33 +142,63 @@ export default function Navbar() {
         )}
       </nav>
 
-      {/* 💎 INVESTMENT POPUP (UNCHANGED) */}
-      {showInvestment && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-2xl p-8 max-w-lg w-[90%] shadow-2xl relative">
-            <button
-              onClick={() => setShowInvestment(false)}
-              className="absolute top-3 right-4"
-            >
-              ✕
-            </button>
+      {/* 💎 INVESTMENT POPUP */}
+{showInvestment && (
+  <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 px-4">
 
-            <h2 className="text-2xl font-serif mb-4 text-center">
-              Investment Plan
-            </h2>
+    <div className="bg-white rounded-2xl p-6 md:p-8 max-w-lg w-full shadow-2xl relative">
 
-            <p className="text-sm text-center">
-              Our exclusive investment plan at Nakoda Jewellers is thoughtfully designed to make your jewellery dreams more accessible and rewarding. Customers can begin their journey with a minimum monthly contribution of just ₹1000 and continue investing for 12 months.
+      {/* CLOSE BUTTON */}
+      <button
+        onClick={() => setShowInvestment(false)}
+        className="absolute top-3 right-4 text-gray-600 hover:text-black text-lg"
+      >
+        ✕
+      </button>
 
-As a token of our appreciation, we add a 1-month bonus, making your total value equivalent to 13 months of investment.
+      {/* IMAGE */}
+      <div className="relative w-full h-40 md:h-52 mb-4 rounded-xl overflow-hidden">
+        <Image
+          src="/investment.jpg"
+          alt="Investment Plan"
+          fill
+          className="object-cover"
+        />
+      </div>
 
-At the end of the tenure, the accumulated amount can be used to purchase jewellery from our store.
+      {/* TITLE */}
+      <h2 className="text-xl md:text-2xl font-serif text-center mb-3">
+        Investment Plan
+      </h2>
 
-Every customer who enrolls receives a surprise giftfrom Nakoda Jewellers.
-            </p>
-          </div>
-        </div>
-      )}
+      {/* CONTENT */}
+      <div className="text-gray-600 text-sm text-center space-y-2">
+        <p>
+          Our exclusive investment plan at Nakoda Jewellers is thoughtfully designed 
+          to make your jewellery dreams more accessible and rewarding.
+        </p>
+
+        <p>
+          Start investing with ₹1000–₹10,000 per month for 12 months.
+        </p>
+
+        <p>
+          We add a <span className="font-semibold">1-month bonus</span>, 
+          making it a total of 13 months.
+        </p>
+
+        <p>
+          At the end of the tenure, use the accumulated amount to purchase jewellery from Nakoda Jewellers.
+        </p>
+
+        <p>
+          You will also receive a <span className="font-semibold">surprise gift</span> at the beginning from Nakoda Jewellers.
+        </p>
+      </div>
+
+    </div>
+  </div>
+)}
     </>
   );
 }
